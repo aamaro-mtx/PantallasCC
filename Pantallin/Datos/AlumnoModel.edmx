@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AlumnosContext.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="AlumnosContextStoreContainer">
+          <EntitySet Name="CA_ACT_SES" EntityType="AlumnosContext.Store.CA_ACT_SES" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CA_SESION" EntityType="AlumnosContext.Store.CA_SESION" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CA_USUARIO" EntityType="AlumnosContext.Store.CA_USUARIO" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="vstSesiones" EntityType="AlumnosContext.Store.vstSesiones" store:Type="Views" store:Schema="dbo" store:Name="vstSesiones">
+            <DefiningQuery>SELECT 
+      [vstSesiones].[AS_SE_ID] AS [AS_SE_ID], 
+      [vstSesiones].[SE_NUM_EQP] AS [SE_NUM_EQP], 
+      [vstSesiones].[SE_NUM_LAB] AS [SE_NUM_LAB], 
+      [vstSesiones].[AS_US_DESCR] AS [AS_US_DESCR]
+      FROM [dbo].[vstSesiones] AS [vstSesiones]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_CA_ACT_SES_CA_SESION" Association="AlumnosContext.Store.FK_CA_ACT_SES_CA_SESION">
+            <End Role="CA_SESION" EntitySet="CA_SESION" />
+            <End Role="CA_ACT_SES" EntitySet="CA_ACT_SES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CA_ACT_SES_CA_USUARIO" Association="AlumnosContext.Store.FK_CA_ACT_SES_CA_USUARIO">
+            <End Role="CA_USUARIO" EntitySet="CA_USUARIO" />
+            <End Role="CA_ACT_SES" EntitySet="CA_ACT_SES" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CA_ACT_SES">
+          <Key>
+            <PropertyRef Name="AS_ID" />
+          </Key>
+          <Property Name="AS_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AS_SE_ID" Type="int" Nullable="false" />
+          <Property Name="AS_INICIADA" Type="bit" Nullable="false" />
+          <Property Name="AS_REPORTE" Type="datetime" />
+          <Property Name="AS_US_DESCR" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CA_SESION">
+          <Key>
+            <PropertyRef Name="SE_ID" />
+          </Key>
+          <Property Name="SE_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SE_NUM_EQP" Type="int" Nullable="false" />
+          <Property Name="SE_NUM_LAB" Type="int" Nullable="false" />
+          <Property Name="SE_US_DESCR" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="SE_INICIO" Type="datetime" Nullable="false" />
+          <Property Name="SE_TERMINO" Type="datetime" />
+          <Property Name="SE_CIERRE" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CA_USUARIO">
+          <Key>
+            <PropertyRef Name="US_NOMBRE" />
+          </Key>
+          <Property Name="US_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="US_NOMBRE" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="US_HABILITA" Type="bit" Nullable="false" />
+          <Property Name="US_DESCR" Type="nvarchar" MaxLength="50" />
+          <Property Name="US_CARRERA" Type="nvarchar" Nullable="false" MaxLength="5" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'BD_CALB.dbo.vstSesiones' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vstSesiones">
+          <Key>
+            <PropertyRef Name="AS_SE_ID" />
+            <PropertyRef Name="SE_NUM_EQP" />
+            <PropertyRef Name="SE_NUM_LAB" />
+            <PropertyRef Name="AS_US_DESCR" />
+          </Key>
+          <Property Name="AS_SE_ID" Type="int" Nullable="false" />
+          <Property Name="SE_NUM_EQP" Type="int" Nullable="false" />
+          <Property Name="SE_NUM_LAB" Type="int" Nullable="false" />
+          <Property Name="AS_US_DESCR" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_CA_ACT_SES_CA_SESION">
+          <End Role="CA_SESION" Type="AlumnosContext.Store.CA_SESION" Multiplicity="1" />
+          <End Role="CA_ACT_SES" Type="AlumnosContext.Store.CA_ACT_SES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CA_SESION">
+              <PropertyRef Name="SE_ID" />
+            </Principal>
+            <Dependent Role="CA_ACT_SES">
+              <PropertyRef Name="AS_SE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CA_ACT_SES_CA_USUARIO">
+          <End Role="CA_USUARIO" Type="AlumnosContext.Store.CA_USUARIO" Multiplicity="1" />
+          <End Role="CA_ACT_SES" Type="AlumnosContext.Store.CA_ACT_SES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CA_USUARIO">
+              <PropertyRef Name="US_NOMBRE" />
+            </Principal>
+            <Dependent Role="CA_ACT_SES">
+              <PropertyRef Name="AS_US_DESCR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AlumnosContext" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="AlumnosEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="SesActuales" EntityType="AlumnosContext.SesionActual" />
+          <EntitySet Name="Sesiones" EntityType="AlumnosContext.Sesion" />
+          <EntitySet Name="Usuarios" EntityType="AlumnosContext.Usuario" />
+          <AssociationSet Name="FK_CA_ACT_SES_CA_SESION" Association="AlumnosContext.FK_CA_ACT_SES_CA_SESION">
+            <End Role="CA_SESION" EntitySet="Sesiones" />
+            <End Role="CA_ACT_SES" EntitySet="SesActuales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CA_ACT_SES_CA_USUARIO" Association="AlumnosContext.FK_CA_ACT_SES_CA_USUARIO">
+            <End Role="CA_USUARIO" EntitySet="Usuarios" />
+            <End Role="CA_ACT_SES" EntitySet="SesActuales" />
+          </AssociationSet>
+          <EntitySet Name="sActivas" EntityType="AlumnosContext.sActiva" />
+        </EntityContainer>
+        <EntityType Name="SesionActual">
+          <Key>
+            <PropertyRef Name="AS_ID" />
+          </Key>
+          <Property Name="AS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AS_SE_ID" Type="Int32" Nullable="false" />
+          <Property Name="AS_INICIADA" Type="Boolean" Nullable="false" />
+          <Property Name="AS_REPORTE" Type="DateTime" Precision="3" />
+          <Property Name="AS_US_DESCR" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Sesion" Relationship="AlumnosContext.FK_CA_ACT_SES_CA_SESION" FromRole="CA_ACT_SES" ToRole="CA_SESION" />
+          <NavigationProperty Name="Usuario" Relationship="AlumnosContext.FK_CA_ACT_SES_CA_USUARIO" FromRole="CA_ACT_SES" ToRole="CA_USUARIO" />
+        </EntityType>
+        <EntityType Name="Sesion">
+          <Key>
+            <PropertyRef Name="SE_ID" />
+          </Key>
+          <Property Name="SE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SE_NUM_EQP" Type="Int32" Nullable="false" />
+          <Property Name="SE_NUM_LAB" Type="Int32" Nullable="false" />
+          <Property Name="SE_US_DESCR" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SE_INICIO" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SE_TERMINO" Type="DateTime" Precision="3" />
+          <Property Name="SE_CIERRE" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="SesionActual" Relationship="AlumnosContext.FK_CA_ACT_SES_CA_SESION" FromRole="CA_SESION" ToRole="CA_ACT_SES" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="US_NOMBRE" />
+          </Key>
+          <Property Name="US_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="US_NOMBRE" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="US_HABILITA" Type="Boolean" Nullable="false" />
+          <Property Name="US_DESCR" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="SesionActual" Relationship="AlumnosContext.FK_CA_ACT_SES_CA_USUARIO" FromRole="CA_USUARIO" ToRole="CA_ACT_SES" />
+          <Property Type="String" Name="US_CARRERA" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_CA_ACT_SES_CA_SESION">
+          <End Role="CA_SESION" Type="AlumnosContext.Sesion" Multiplicity="1" />
+          <End Role="CA_ACT_SES" Type="AlumnosContext.SesionActual" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CA_SESION">
+              <PropertyRef Name="SE_ID" />
+            </Principal>
+            <Dependent Role="CA_ACT_SES">
+              <PropertyRef Name="AS_SE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CA_ACT_SES_CA_USUARIO">
+          <End Role="CA_USUARIO" Type="AlumnosContext.Usuario" Multiplicity="1" />
+          <End Role="CA_ACT_SES" Type="AlumnosContext.SesionActual" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CA_USUARIO">
+              <PropertyRef Name="US_NOMBRE" />
+            </Principal>
+            <Dependent Role="CA_ACT_SES">
+              <PropertyRef Name="AS_US_DESCR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="sActiva">
+          <Key>
+            <PropertyRef Name="AS_SE_ID" />
+            <PropertyRef Name="SE_NUM_EQP" />
+            <PropertyRef Name="SE_NUM_LAB" />
+            <PropertyRef Name="AS_US_DESCR" />
+          </Key>
+          <Property Type="Int32" Name="AS_SE_ID" Nullable="false" />
+          <Property Type="Int32" Name="SE_NUM_EQP" Nullable="false" />
+          <Property Type="Int32" Name="SE_NUM_LAB" Nullable="false" />
+          <Property Type="String" Name="AS_US_DESCR" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AlumnosContextStoreContainer" CdmEntityContainer="AlumnosEntities">
+          <EntitySetMapping Name="SesActuales">
+            <EntityTypeMapping TypeName="AlumnosContext.SesionActual">
+              <MappingFragment StoreEntitySet="CA_ACT_SES">
+                <ScalarProperty Name="AS_ID" ColumnName="AS_ID" />
+                <ScalarProperty Name="AS_SE_ID" ColumnName="AS_SE_ID" />
+                <ScalarProperty Name="AS_INICIADA" ColumnName="AS_INICIADA" />
+                <ScalarProperty Name="AS_REPORTE" ColumnName="AS_REPORTE" />
+                <ScalarProperty Name="AS_US_DESCR" ColumnName="AS_US_DESCR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sesiones">
+            <EntityTypeMapping TypeName="AlumnosContext.Sesion">
+              <MappingFragment StoreEntitySet="CA_SESION">
+                <ScalarProperty Name="SE_ID" ColumnName="SE_ID" />
+                <ScalarProperty Name="SE_NUM_EQP" ColumnName="SE_NUM_EQP" />
+                <ScalarProperty Name="SE_NUM_LAB" ColumnName="SE_NUM_LAB" />
+                <ScalarProperty Name="SE_US_DESCR" ColumnName="SE_US_DESCR" />
+                <ScalarProperty Name="SE_INICIO" ColumnName="SE_INICIO" />
+                <ScalarProperty Name="SE_TERMINO" ColumnName="SE_TERMINO" />
+                <ScalarProperty Name="SE_CIERRE" ColumnName="SE_CIERRE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="AlumnosContext.Usuario">
+              <MappingFragment StoreEntitySet="CA_USUARIO">
+                <ScalarProperty Name="US_CARRERA" ColumnName="US_CARRERA" />
+                <ScalarProperty Name="US_ID" ColumnName="US_ID" />
+                <ScalarProperty Name="US_NOMBRE" ColumnName="US_NOMBRE" />
+                <ScalarProperty Name="US_HABILITA" ColumnName="US_HABILITA" />
+                <ScalarProperty Name="US_DESCR" ColumnName="US_DESCR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sActivas">
+            <EntityTypeMapping TypeName="AlumnosContext.sActiva">
+              <MappingFragment StoreEntitySet="vstSesiones">
+                <ScalarProperty Name="AS_US_DESCR" ColumnName="AS_US_DESCR" />
+                <ScalarProperty Name="SE_NUM_LAB" ColumnName="SE_NUM_LAB" />
+                <ScalarProperty Name="SE_NUM_EQP" ColumnName="SE_NUM_EQP" />
+                <ScalarProperty Name="AS_SE_ID" ColumnName="AS_SE_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram DiagramId="e461e9edeee74ee1a32140b4ed74e5c7" Name="Diagram1">
+        <EntityTypeShape EntityType="AlumnosContext.SesionActual" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlumnosContext.Sesion" Width="1.5" PointX="3.375" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlumnosContext.Usuario" Width="1.5" PointX="0.5" PointY="3.625" IsExpanded="true" />
+        <AssociationConnector Association="AlumnosContext.FK_CA_ACT_SES_CA_SESION" ManuallyRouted="false" />
+        <AssociationConnector Association="AlumnosContext.FK_CA_ACT_SES_CA_USUARIO" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="AlumnosContext.sActiva" Width="1.5" PointX="6.5" PointY="1.625" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

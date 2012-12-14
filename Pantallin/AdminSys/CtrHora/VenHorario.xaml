@@ -1,0 +1,91 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:HorarioS" x:Class="HorarioS.VHorario"
+        Title="..:::... Registra :-: Horarios ...:::..." Height="600" Width="1000"
+        WindowStartupLocation="CenterScreen" Loaded="Window_Loaded_1" Icon="Imagenes\logoVerd.ico" 
+    ResizeMode="NoResize" ShowInTaskbar="False" Topmost="True">
+    <Window.Background>
+        <ImageBrush ImageSource="Imagenes\anuncios.jpg"/>
+    </Window.Background>
+    <Grid>
+        <GroupBox Header="Horarios" HorizontalAlignment="Left" VerticalAlignment="Top" Height="257" Width="777" Margin="52,278,0,0">           
+            <Grid Margin="0,-24,0,18">
+                <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="26" Margin="10,35,0,0" Stroke="Black" VerticalAlignment="Top" Width="749"/>
+                <Label Content="Lunes" x:Name="lblLun" HorizontalAlignment="Left" Margin="43,35,0,0" VerticalAlignment="Top"/>
+                <Label Content="Martes" x:Name="lblMar" HorizontalAlignment="Left" Margin="155,37,0,0" VerticalAlignment="Top"/>
+                <Label Content="Miercoles" x:Name="lblMie" HorizontalAlignment="Left" Margin="253,35,0,0" VerticalAlignment="Top"/>
+                <Label Content="Jueves" x:Name="lblJue" HorizontalAlignment="Left" Margin="367,35,0,0" VerticalAlignment="Top"/>
+                <Label Content="Viernes" x:Name="lblVie" HorizontalAlignment="Left" Margin="457,35,0,0" VerticalAlignment="Top"/>
+                <Label Content="Sabado" x:Name="lblSab" HorizontalAlignment="Left" Margin="552,35,0,0" VerticalAlignment="Top"/>
+                <Label Content="Domingo" x:Name="lblDom" HorizontalAlignment="Left" Margin="662,35,0,0" VerticalAlignment="Top"/>
+                <Separator HorizontalAlignment="Left" Height="66" Margin="10,73,0,0" VerticalAlignment="Top" Width="749"/>
+                <Separator HorizontalAlignment="Left" Height="64" Width="224" Margin="100,37,0,0" VerticalAlignment="Top" >
+                    <Separator.LayoutTransform>
+                        <RotateTransform Angle="90"/>
+                    </Separator.LayoutTransform>
+                </Separator>
+                <Separator HorizontalAlignment="Left" Height="64" Width="226" Margin="200,35,0,0" VerticalAlignment="Top" >
+                    <Separator.LayoutTransform>
+                        <RotateTransform Angle="90"/>
+                    </Separator.LayoutTransform>
+                </Separator>
+                <Separator HorizontalAlignment="Left" Height="64" Width="224" Margin="300,36,0,0" VerticalAlignment="Top" >
+                    <Separator.LayoutTransform>
+                        <RotateTransform Angle="90"/>
+                    </Separator.LayoutTransform>
+                </Separator>
+                <Separator HorizontalAlignment="Left" Height="64" Width="222" Margin="400,39,0,0" VerticalAlignment="Top" >
+                    <Separator.LayoutTransform>
+                        <RotateTransform Angle="90"/>
+                    </Separator.LayoutTransform>
+                </Separator>
+                <Separator HorizontalAlignment="Left" Height="64" Width="223" Margin="500,39,0,0" VerticalAlignment="Top" >
+                    <Separator.LayoutTransform>
+                        <RotateTransform Angle="90"/>
+                    </Separator.LayoutTransform>
+                </Separator>
+                <Separator HorizontalAlignment="Left" Height="64" Width="222" Margin="600,39,57,0" VerticalAlignment="Top" >
+                    <Separator.LayoutTransform>
+                        <RotateTransform Angle="90"/>
+                    </Separator.LayoutTransform>
+                </Separator>           
+                <local:HorarioC x:Name="ctrHo_lun" HorizontalAlignment="Left" Margin="24,60,0,0" VerticalAlignment="Top"/>                
+                <local:HorarioC x:Name="ctrHo_Mar" HorizontalAlignment="Left" Margin="138,60,0,0" VerticalAlignment="Top"/>
+                <local:HorarioC x:Name="ctrHo_Mie" HorizontalAlignment="Left" Margin="238,60,0,0" VerticalAlignment="Top" />
+                <local:HorarioC x:Name="ctrHo_Jue" HorizontalAlignment="Left" Margin="338,60,0,0" VerticalAlignment="Top" />
+                <local:HorarioC x:Name="ctrHo_Vie" HorizontalAlignment="Left" Margin="438,60,0,0" VerticalAlignment="Top" />
+                <local:HorarioC x:Name="ctrHo_Sab" HorizontalAlignment="Left" Margin="538,60,0,0" VerticalAlignment="Top" />
+                <local:HorarioC x:Name="ctrHo_Dom" HorizontalAlignment="Left" Margin="643,60,0,0" VerticalAlignment="Top" />               
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Datos de Materia " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="52,153,0,0" Height="125" Width="890">
+            <Grid>
+                <ComboBox Name="cbMat" HorizontalAlignment="Left" Margin="447,69,0,0" VerticalAlignment="Top" Width="250" 
+                  ItemsSource="{Binding Path=Asignatura}"
+                  DisplayMemberPath="Nombre"    SelectedValue="ID"  >
+                </ComboBox>
+                <ComboBox x:Name="cbLab" HorizontalAlignment="Left" Margin="447,14,0,0" VerticalAlignment="Top" Width="250"
+        	ItemsSource="{Binding Laboratorio}"
+        	DisplayMemberPath="Nombre" SelectedValue="ID"/>
+                <ComboBox x:Name="cbGrp" HorizontalAlignment="Left" Margin="66,69,0,0" VerticalAlignment="Top" Width="250"
+        	ItemsSource="{Binding Grupo}"
+        	DisplayMemberPath="Nombre" SelectedValue="ID"/>
+                <ComboBox x:Name="cbDoc" HorizontalAlignment="Left" Margin="66,14,0,0" VerticalAlignment="Top" Width="250" 
+        	ItemsSource="{Binding Asignatura}"      	DisplayMemberPath="Nombre"              
+        	SelectedValue="ID"        	>
+                </ComboBox>
+                <Label Content="Grupo" HorizontalAlignment="Left" Margin="21,65,0,0" VerticalAlignment="Top"/>
+                <Label Content="Docente" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                <Label Content="Materia: " HorizontalAlignment="Left" Margin="364,56,0,0" VerticalAlignment="Top" Width="78"/>
+                <Label Content="Laboratorio" HorizontalAlignment="Left" Margin="364,14,0,0" VerticalAlignment="Top"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Operaciones" HorizontalAlignment="Left" Margin="834,294,0,0" VerticalAlignment="Top" Height="196" Width="108">
+            <Grid >
+                <Button Content="Agregar" HorizontalAlignment="Center" Margin="9,0,10,85" VerticalAlignment="Bottom"
+                        Width="77" Click="PruebBoton" Height="41"  />
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>

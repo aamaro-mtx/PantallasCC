@@ -1,0 +1,16 @@
+﻿<Window x:Class="ControlHorario.MainWindows"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Principal" Height="300" Width="300" WindowState="Maximized" ShowInTaskbar="False" ResizeMode="NoResize"
+        Loaded="Window_Loaded_1" WindowStyle="None">
+    <Grid Background="#01354A">
+        <!--<Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                <GradientStop Color="#FFE77E37" Offset="0.163"/>
+                <GradientStop Color="#FF01354A" Offset="0.841"/>               
+            </LinearGradientBrush>
+        </Grid.Background>-->
+       
+
+    </Grid>
+</Window>

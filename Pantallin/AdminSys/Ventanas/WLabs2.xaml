@@ -1,0 +1,12 @@
+﻿<Window x:Class="PUsuarios.WLabs2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"        
+         Title="..:::... Registra :-: Laboratorios ...:::..." Height="400" Width="400"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Image HorizontalAlignment="Left"  Margin="10,0,0,0" VerticalAlignment="Top" Width="auto" Stretch="Fill"
+        	Source="Imagenes/enkBla.jpg" Height="171"/>
+        <GroupBox Header="GroupBox" HorizontalAlignment="Left" Margin="24,176,0,0" VerticalAlignment="Top" Height="171" Width="343"/>
+
+    </Grid>
+</Window>

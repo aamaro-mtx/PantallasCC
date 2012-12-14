@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B5F73ED9-AB8A-479E-8D09-25A65C7BBC1E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PUsuarios</RootNamespace>
+    <AssemblyName>AdminSys</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="CtrHora\HorarioC.xaml.cs">
+      <DependentUpon>HorarioC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CtrHora\VenHorario.xaml.cs">
+      <DependentUpon>VenHorario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Estilos\Pantone.cs" />
+    <Compile Include="Estilos\Utilidades.cs" />
+    <Compile Include="venModHora.xaml.cs">
+      <DependentUpon>venModHora.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\AppInfo.cs" />
+    <Compile Include="Ventanas\WAsig.xaml.cs">
+      <DependentUpon>WAsig.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\WDoc.xaml.cs">
+      <DependentUpon>WDoc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\WGrup.xaml.cs">
+      <DependentUpon>WGrup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\WLabs.xaml.cs">
+      <DependentUpon>WLabs.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\WComen.xaml.cs">
+      <DependentUpon>WComen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\WJuntas.xaml.cs">
+      <DependentUpon>WJuntas.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Estilos\BtnStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CtrHora\HorarioC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CtrHora\VenHorario.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainW.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainW.xaml.cs">
+      <DependentUpon>MainW.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="venModHora.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ventanas\WAsig.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ventanas\WDoc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ventanas\WGrup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ventanas\WLabs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ventanas\WComen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ventanas\WJuntas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="App.Config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{d63f9f37-2882-4290-a298-1644d438d694}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Logica\Negocio.csproj">
+      <Project>{cdbd0df2-56fd-4878-9e59-c14295dfc015}</Project>
+      <Name>Negocio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\enkBla.jpg" />
+    <Resource Include="Imagenes\enkVrd.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Iconos\logoVerd.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Iconos\lab.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\bg_prim.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\add_file.png" />
+    <Resource Include="Imagenes\paste.png" />
+    <Resource Include="Imagenes\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\pantera.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\anuncios.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\AvisosCC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\MrX.jpg" />
+    <Resource Include="Imagenes\srX.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="CtrHora\Imagenes\anuncios.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="CtrHora\Imagenes\enkVrd.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="CtrHora\Imagenes\logoVerd.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\pantT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\logoVerd.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

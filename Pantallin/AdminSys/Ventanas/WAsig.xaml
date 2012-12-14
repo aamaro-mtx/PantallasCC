@@ -1,0 +1,117 @@
+﻿<Window x:Class="PUsuarios.WAsig"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         Title="..:::... Registra :-: Asignaturas ...:::..." Height="400" Width="550"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded_1" Icon="../Iconos/logoVerd.ico"
+        ShowInTaskbar="False" Topmost="True">
+    <Grid Name="contendor">
+        <TabControl Name="tbPri" HorizontalAlignment="Stretch" Height="252"  VerticalAlignment="Top" Margin="10,101,20,0"
+                    Background="Aquamarine">
+            <TabItem Width="100" LostFocus="limpiarTabItem">
+                <TabItem.Template>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <Grid>
+                            <Border Name="Border" Background="Silver" BorderBrush="Black"
+                                    BorderThickness="1,1,1,1" CornerRadius="6,6,0,0" >
+                                <ContentPresenter VerticalAlignment="Center"
+                                 HorizontalAlignment="Center" Margin="12,2,12,2">
+                                    <ContentPresenter.Content>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image Height="18" Source="../Imagenes/paste.png" />
+                                            <TextBlock Text="Altas" Margin="2,0,0,0" VerticalAlignment="Center" />
+                                        </StackPanel>
+                                    </ContentPresenter.Content>
+                                </ContentPresenter>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected"  Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="Teal" />
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="False">
+                                <Setter TargetName="Border" Property="Background" Value="Black" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </TabItem.Template>
+                <Grid Width="505" Height="220" Background="#FFE5E5E5">
+                   
+                    <TextBox HorizontalAlignment="Left" Height="40" Margin="10,46,0,0" TextWrapping="Wrap" Text="" 
+                            VerticalAlignment="Top" Width="221" x:Name="txtNom" CharacterCasing="Upper"/>
+                    <Label Content="Clave :" HorizontalAlignment="Left" Margin="274,15,0,0" VerticalAlignment="Top"/>
+                    <Label HorizontalAlignment="Left" Content="Nombre : " VerticalAlignment="Top" Margin="21,15,0,0"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="274,46,0,0" TextWrapping="Wrap" CharacterCasing="Upper" Text="" 
+                    	VerticalAlignment="Top" Width="221" x:Name="txtCve"/>
+                    <Button Content="Agregar" HorizontalAlignment="Left" Margin="175,165,0,0"
+                            VerticalAlignment="Top" Width="143" Height="45" Click="AgregaAsignatura"/>
+                    <!--<ComboBox Name="cbCur" HorizontalAlignment="Left" Margin="15,108,0,0" VerticalAlignment="Top" Width="216"
+                              ItemsSource="{Binding Path=Curso}"
+                              DisplayMemberPath="MesFin" SelectedValue="ID"/>
+                    <Label Content="Curso" HorizontalAlignment="Left" Margin="21,77,0,0" VerticalAlignment="Top"/>-->
+                </Grid>
+            </TabItem>
+
+            <TabItem Width="130" LostFocus="limpiarTabItem">
+                <TabItem.Template>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <Grid>
+                            <Border Name="Border" Background="Silver" BorderBrush="Black"
+                                    BorderThickness="1,1,1,1" CornerRadius="6,6,0,0" >
+                                <ContentPresenter VerticalAlignment="Center"
+                                 HorizontalAlignment="Center" Margin="12,2,12,2">
+                                    <ContentPresenter.Content>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image Height="18" Source="../Imagenes/paste.png" />
+                                            <TextBlock Text="Modificaciones" Margin="2,0,0,0" VerticalAlignment="Center" />
+                                        </StackPanel>
+                                    </ContentPresenter.Content>
+                                </ContentPresenter>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected"  Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="Teal" />
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="False">
+                                <Setter TargetName="Border" Property="Background" Value="Black" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </TabItem.Template>
+             
+                <Grid Background="#FFE5E5E5" Width="499" Height="225">
+                    <Label Content="Disponibles" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top"/>
+                    <ComboBox Name="cbDisp" HorizontalAlignment="Left" Margin="104,7,0,0" VerticalAlignment="Top" Width="215"
+                              ItemsSource="{Binding Path=Asignatura}"
+                              DisplayMemberPath="Nombre" SelectedValue="ID"
+                              SelectionChanged="cbDisp_SelectionChanged_1"/>
+                    <Button Content="Guardar" HorizontalAlignment="Left" Margin="56,172,0,0"
+                    	VerticalAlignment="Top" Width="143" Height="45" Click="GuardarCambios"/>
+                    <Button Content="Eliminar" HorizontalAlignment="Left" Margin="295,172,0,0"
+                    	VerticalAlignment="Top" Width="143" Height="45" Click="EliminaAsignatura"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="8,69,0,0" TextWrapping="Wrap" Text="" 
+                    	VerticalAlignment="Top" Width="221" x:Name="txtNom2" CharacterCasing="Upper"/>
+                    <Label Content="Clave :" HorizontalAlignment="Left" Margin="272,38,0,0" VerticalAlignment="Top"/>
+                    <Label HorizontalAlignment="Left" Content="Nombre : " VerticalAlignment="Top" Margin="14,38,0,0"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="272,69,0,0" TextWrapping="Wrap" CharacterCasing="Upper" Text="" 
+                    	VerticalAlignment="Top" Width="221" x:Name="txtCve2"/>
+                    
+                    <!--<ComboBox x:Name="cbCur2" HorizontalAlignment="Left" Margin="8,128,0,0" VerticalAlignment="Top" Width="221"
+                    	ItemsSource="{Binding Curso}"
+                    	DisplayMemberPath="MesFin" SelectedValue="ID"/>
+                    <Label Content="Curso" HorizontalAlignment="Left" Margin="14,97,0,0" VerticalAlignment="Top"/>-->
+                </Grid>
+            </TabItem>
+            <DataGrid Name="dgVisual"  HorizontalAlignment="Stretch" Margin="0,10,0,82"/>
+        </TabControl>
+        <Image HorizontalAlignment="Left" Height="49" Margin="10,5,20,0" VerticalAlignment="Top" Width="auto" Stretch="Fill"
+        	Source="../Imagenes/enkBla.jpg" Visibility="Hidden">
+            <Image.BitmapEffect>
+                <DropShadowBitmapEffect Color="#01354A" Direction="20" ShadowDepth="25" Softness="1" Opacity="0.5"/>
+            </Image.BitmapEffect>
+        </Image>
+    </Grid>
+    <Window.Background>
+        <ImageBrush ImageSource="../Imagenes/anuncios.jpg"/>
+    </Window.Background>
+</Window>

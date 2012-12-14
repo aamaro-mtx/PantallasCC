@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="ControlHorario.uctrCaraCubo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="500"
+             Name="caraCubo" Loaded="caraCubo_Loaded_1">
+    <Grid HorizontalAlignment="Right" Width="500">
+        <Grid.Background>
+            <ImageBrush />
+        </Grid.Background>
+
+        <Image Name="imgDocente"
+            HorizontalAlignment="Left" Margin="244,23,0,206" Width="231"  Stretch="Fill">
+            <Image.Effect>
+                <DropShadowEffect Color="#FFFBA50F" Direction="50" ShadowDepth="10"/>
+            </Image.Effect>
+        </Image>
+        <TextBlock  Name="lblDocente" HorizontalAlignment="Left" Margin="32,0,0,168" TextWrapping="Wrap"
+                    Foreground="#fef599" Width="443" Height="auto" FontSize="25" VerticalAlignment="Bottom" Text="A" FontWeight="Bold">
+            <TextBlock.Effect>
+                <DropShadowEffect Color="#FFCE3A0E"/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <TextBlock  Name="lblMateria" Margin="32,0,0,32" TextWrapping="Wrap" Text="" Height="77" FontWeight="Bold"
+                    Foreground="#fef599" HorizontalAlignment="Left" Width="430" FontSize="25" VerticalAlignment="Bottom">
+            <TextBlock.Effect>
+                <DropShadowEffect BlurRadius="23" Color="#FFDC2020" ShadowDepth="10"/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <TextBlock  Name="lblGrupo" Margin="32,196,0,273" TextWrapping="Wrap" Height="auto" FontWeight="Bold"
+                    Foreground="#fef599" HorizontalAlignment="Left" Width="auto" FontSize="25">
+            <TextBlock.Effect>
+                <DropShadowEffect Color="#FFDC2020" BlurRadius="10" ShadowDepth="10"/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <TextBlock  x:Name="lblCarrera" Margin="32,0,10,314" TextWrapping="Wrap"   FontWeight="Bold"
+        	Foreground="#fef599" HorizontalAlignment="Left" Width="250" FontSize="25" Height="69" VerticalAlignment="Bottom">
+            <TextBlock.Effect>
+                <DropShadowEffect Color="#FFF9362D" Direction="50" ShadowDepth="10"/>
+            </TextBlock.Effect>
+            <Run/><LineBreak/><Run/></TextBlock>
+        
+        <TextBlock  x:Name="lblHora" Margin="32,34,0,371" TextWrapping="Wrap" Height="auto"  FontWeight="SemiBold"
+        	Foreground="#fef599" HorizontalAlignment="Left" FontSize="24" Width="150">
+            <TextBlock.Effect>
+                <DropShadowEffect BlurRadius="23" Color="#FFDC2020" ShadowDepth="20"/>
+            </TextBlock.Effect>
+        </TextBlock>
+    </Grid>
+</UserControl>

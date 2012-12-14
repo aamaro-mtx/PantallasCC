@@ -1,0 +1,50 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:ControlHorario" x:Class="ControlHorario.LayLaboratorio"
+        Title="Usuarios de los laboratorios" Height="300" Width="517" WindowStartupLocation="CenterScreen" Name="vlay"
+        WindowStyle="None" WindowState="Maximized"  ShowInTaskbar="False" Topmost="False"  Loaded="cargaDelaVentana" >
+    <Canvas x:Name="LayoutRoot" Background="Black">
+        <Grid x:Name="LayoutGrid" Loaded="LayoutGrid_Loaded_1" >
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                    <SkewTransform AngleX="0" AngleY="0"/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform X="0" Y="0"/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Rectangle   Stroke="{x:Null}" RadiusX="10" RadiusY="10" Margin="5,5,5,5" x:Name="rectImagen" Width="auto" Height="auto">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="/Pantallas;component/Imagenes/letr.jpg"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Grid  Name="gridPadre" HorizontalAlignment="Center" VerticalAlignment="Center" Width="auto" Margin="40,84,0,0" Height="auto"/>
+        </Grid>
+    </Canvas>
+    <Window.Resources>
+        <Storyboard x:Key="TimelineCerrar">
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="LayoutGrid" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00.1500000" Value="0.049"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="LayoutGrid" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00.1500000" Value="0.049"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="LayoutGrid" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00.1500000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="TimelineAparecer">
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="LayoutGrid" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:00.1510000" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource TimelineAparecer}"/>
+        </EventTrigger>
+    </Window.Triggers>
+</Window>

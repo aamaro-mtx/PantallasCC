@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="53f24bdc9e764395884d0c66881c8f59" Name="Diagram1" ZoomLevel="100">
+        <EntityTypeShape EntityType="PantallasCCModel.Curso" Width="1.5" PointX="0.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PantallasCCModel.Docente" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="PantallasCCModel.Grupo" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PantallasCCModel.Horario" Width="1.5" PointX="5.25" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PantallasCCModel.Laboratorio" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />
+        <AssociationConnector Association="PantallasCCModel.fk_IdCur2" ManuallyRouted="false" />
+        <AssociationConnector Association="PantallasCCModel.Fk_Lab_Hor" />
+        <AssociationConnector Association="PantallasCCModel.FK_Hor_Doc" />
+        <EntityTypeShape EntityType="PantallasCCModel.Asignatura" Width="1.5" PointX="3" PointY="1.75" />
+        <AssociationConnector Association="PantallasCCModel.fk_IdAsi" />
+        <AssociationConnector Association="PantallasCCModel.fk_IdCur" />
+        <AssociationConnector Association="PantallasCCModel.FK_Hor_Grp" />
+        <EntityTypeShape EntityType="PantallasCCModel.Carrera" Width="1.5" PointX="5.75" PointY="6.75" />
+        <EntityTypeShape EntityType="PantallasCCModel.Aviso" Width="1.5" PointX="0.75" PointY="6.125" />       
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
